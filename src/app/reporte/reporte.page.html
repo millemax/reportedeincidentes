@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="danger">
+      
+    <ion-title>Reporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+   <ion-grid>  
+
+      <ion-row>
+          <ion-col col-6>
+            <label><h3>Tomar foto :</h3></label>
+            <ion-card class="ion-text-center">
+               
+                   <ion-icon name="camera"></ion-icon>
+               
+            </ion-card>
+   
+          </ion-col>
+        </ion-row>
+        <ion-item>
+            <ion-label>Categoria</ion-label>
+            <ion-select interface="popover" [(ngModel)]="reportcategoria" >
+              <ion-select-option value="robo">Robo</ion-select-option>
+              <ion-select-option value="asalto">asalto</ion-select-option>
+              <ion-select-option value="pelea callejera">pelea callejera</ion-select-option>
+              <ion-select-option value="genesis">violencia familiar</ion-select-option>
+              <ion-select-option value="incendio">Incendio</ion-select-option>
+              <ion-select-option value="otros">otros</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+
+     <ion-row>
+       <ion-col col-6>
+         <label><h3>Descripción :</h3></label>
+         <ion-card>
+            
+                <ion-textarea rows="6" cols="20" placeholder="Ingresa una Descripción." [(ngModel)]="reportdescripcion"></ion-textarea>
+            
+         </ion-card>
+
+       </ion-col>
+     </ion-row>
+
+     
+      <ion-button expand="full" (click)="CreateRecord()" [disabled]="!reportcategoria || !reportdescripcion">Enviar</ion-button>
+
+    
+   </ion-grid>
+
+   
+
+    
+
+
+</ion-content>

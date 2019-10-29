@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Menú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col col-6>
+          <ion-card class="ion-text-center ion-padding" routerLink="/reporte">
+              <ion-icon name="paper" color="danger"></ion-icon>
+              <h3>Reportar Incidente</h3>
+          </ion-card>
+        </ion-col>
+
+        <ion-col col-6>
+            <ion-card class="ion-text-center ion-padding" routerLink="/noticias">
+                <ion-icon name="logo-twitch" color="danger"></ion-icon>
+                <h3>Noticias del dia</h3>
+            </ion-card>
+          </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-card class="ion-text-center ion-padding" routerLink="/zonasinseguras">
+                <ion-icon name="nuclear" color="danger"></ion-icon>
+                <h3>Zonas Inseguras</h3>
+            </ion-card>
+          </ion-col>
+
+          <ion-col col-6>
+              <ion-card class="ion-text-center ion-padding"routerLink="/estadisticas">
+                  <ion-icon name="stats" color="danger"></ion-icon>
+                  <h3>Reporte de Incidentes</h3>
+              </ion-card>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+
+</ion-content>
