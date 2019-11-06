@@ -11,9 +11,8 @@ const routes: Routes = [
   { path: 'estadisticas', loadChildren: './estadisticas/estadisticas.module#EstadisticasPageModule' },
   { path: 'zonasinseguras', loadChildren: './zonasinseguras/zonasinseguras.module#ZonasinsegurasPageModule' },
   { path: 'reporte-enviado', loadChildren: './reporte-enviado/reporte-enviado.module#ReporteEnviadoPageModule' },
-  { path: 'todo-details', loadChildren: './pages/todo-details/todo-details.module#TodoDetailsPageModule' },
-  { path: 'details/:id', loadChildren:'./pages/todo-details/todo-details.module#TodoDetailsPageModule'},
-  { path: 'details', loadChildren:'./pages/todo-details/todo-details.module#TodoDetailsPageModule'},
+ 
+  
 
 ];
 
