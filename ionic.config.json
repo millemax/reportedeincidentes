@@ -1,5 +1,7 @@
 {
   "name": "apk-leo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
