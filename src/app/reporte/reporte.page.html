@@ -12,9 +12,10 @@
       <ion-row>
           <ion-col col-6>
             <label><h3>Tomar foto :</h3></label>
-            <ion-card class="ion-text-center">
+            <ion-card class="ion-text-center" (click)="tomarFoto()">
                
                    <ion-icon name="camera"></ion-icon>
+                   <img [src]="capturedSnapURL" *ngIf="capturedSnapURL"   width="60" height="200"/>
                
             </ion-card>
    
@@ -46,7 +47,7 @@
      </ion-row>
 
      
-      <ion-button expand="full" (click)="CreateRecord()" [disabled]="!reportcategoria || !reportdescripcion">Enviar</ion-button>
+      <ion-button expand="full" (click)="CreateRecord()" [disabled]="!reportcategoria || !reportdescripcion ">Enviar</ion-button>
 
     
    </ion-grid>
