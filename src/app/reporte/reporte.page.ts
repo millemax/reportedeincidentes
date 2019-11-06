@@ -71,20 +71,17 @@ export class ReportePage implements OnInit {
     });
   }
 
-  
+
 
   CreateRecord() {
           // enviando la foto a firebase storage
-          const filename = Math.floor(Date.now() / 1000);
-          const pictures= storage().ref('pictures'+filename) ;
-          pictures.putString(this.capturedSnapURL,'data_url') ;  
-        
-          storage().ref('gs://apk-leo.appspot.com/pictures1572962494').getDownloadURL().then(function(url) {
-            console.log(url);
+           
 
-          this.downloadedURL = url;
           
-          });
+          
+          
+        
+          
 
 
 
