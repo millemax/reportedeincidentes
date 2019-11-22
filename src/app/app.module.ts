@@ -16,9 +16,36 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+
+// plugin para la autenticacion
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
+
 // plugin para la camara
 
 import { Camera } from '@ionic-native/camera/ngx';
+
+
+// plugin para la geolocalizacion:
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+// el plugin para los graficos:
+
+import { ChartsModule } from 'ng2-charts';
+
+
+//plugin para enviar los mensajes
+import {SMS} from '@ionic-native/sms/ngx'
+
+
+//plugin para el mensaje cloud
+import { CallNumber } from '@ionic-native/call-number/ngx';
+
+
+
+
+
+
 
 
 
@@ -30,13 +57,23 @@ import { Camera } from '@ionic-native/camera/ngx';
     // importamos los modulos para poder usarlos.
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireDatabaseModule ],
+    AngularFireDatabaseModule ,
+    ChartsModule,
+    AngularFireAuthModule,
+     ],
   providers: [
+    Geolocation,
     StatusBar,
     SplashScreen,
     Camera,
+    SMS,
+    CallNumber,
+    
+    
+    
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class CrudService {
+  idtime:number;
  
   constructor(
     private firestore: AngularFirestore
@@ -13,7 +14,8 @@ export class CrudService {
  
  // crearemos nuestro nuevo documento
   create_report(record) {
-    return this.firestore.collection('reportes').add(record);
+    this.idtime=Date.now();
+    return this.firestore.collection('reportes').doc(""+this.idtime).set(record);
   }
  // leeremos nuestros documentos existentes
   read_report() {

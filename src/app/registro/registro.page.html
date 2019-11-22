@@ -5,35 +5,35 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form action="">
+    <form>
        <ion-list>
          <ion-item>
             <ion-label position="stacked"><h1>Nombre :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="text"  [(ngModel)]="nombre" name="nombre"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>Apellido :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>N° Dni :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="number" [(ngModel)]="dni"  name="dni"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>Numero de Celular :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="number"  [(ngModel)]="numerocelular" name="numerocelular"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>Correo Electronico :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="email" [(ngModel)]="correo" name="correo"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>Contraseña :</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="password" [(ngModel)]="contrasena" name="contraseña"></ion-input>
          </ion-item>
          <ion-item>
             <ion-label position="stacked"><h1>Repetir Contraseña:</h1></ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="password" [(ngModel)]="ccontrasena" name="ccontraseña"></ion-input>
          </ion-item>
          
 
@@ -42,13 +42,11 @@
             <ion-checkbox color="danger" checked slot="start"></ion-checkbox>
             <ion-label>Acepto los terminos y condiciones</ion-label>
           </ion-item>
-        </div>
-
-         
+        </div>         
 
          <div class="ion-padding">
            
-          <ion-button expand="block" type="submit" class="ion-no-margin" >Crear Cuenta</ion-button>
+          <ion-button expand="block" type="submit" class="ion-no-margin"  (click)="registro()">Crear Cuenta</ion-button>
               
          </div>
 

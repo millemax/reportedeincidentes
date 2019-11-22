@@ -1,7 +1,18 @@
 <ion-header>
   <ion-toolbar color="danger">
+
+    <ion-buttons slot="start">
       
+        <ion-icon name="arrow-back" style="font-size: 30px;" routerLink="/menu"></ion-icon>
+    </ion-buttons>
+    
     <ion-title>Reporte</ion-title>
+
+    <ion-buttons slot="end">
+      
+        <ion-icon name="menu" style="font-size:30px;"></ion-icon>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -13,23 +24,23 @@
           <ion-col col-6>
             <label><h3>Tomar foto :</h3></label>
             <ion-card class="ion-text-center" (click)="tomarFoto()">
-               
-                   <ion-icon name="camera"></ion-icon>
-                   <img [src]="capturedSnapURL" *ngIf="capturedSnapURL"   width="60" height="200"/>
+                  
+              <ion-icon name="image"></ion-icon>
+                   <img [src]="capturedSnapURL" *ngIf="capturedSnapURL" width="100" height="200"/>
                
             </ion-card>
    
           </ion-col>
         </ion-row>
         <ion-item>
-            <ion-label>Categoria</ion-label>
+            <ion-label>CATEGORIA </ion-label>
             <ion-select interface="popover" [(ngModel)]="reportcategoria" >
-              <ion-select-option value="robo">Robo</ion-select-option>
-              <ion-select-option value="asalto">asalto</ion-select-option>
-              <ion-select-option value="pelea callejera">pelea callejera</ion-select-option>
-              <ion-select-option value="genesis">violencia familiar</ion-select-option>
-              <ion-select-option value="incendio">Incendio</ion-select-option>
-              <ion-select-option value="otros">otros</ion-select-option>
+              <ion-select-option value="Robo">Robo</ion-select-option>
+              <ion-select-option value="Asalto">Asalto</ion-select-option>
+              <ion-select-option value="Pelea callejera">Pelea callejera</ion-select-option>
+              <ion-select-option value="Violencia familiar">Violencia familiar</ion-select-option>
+              <ion-select-option value="Incendio">Incendio</ion-select-option>
+              <ion-select-option value="Otros">Otros</ion-select-option>
             </ion-select>
           </ion-item>
   

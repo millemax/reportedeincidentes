@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>Menú</ion-title>
+      <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    <ion-title class="ion-text-center">Menú</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<div>
     <ion-grid>
       <ion-row>
 
@@ -19,7 +23,7 @@
         <ion-col col-6>
             <ion-card class="ion-text-center ion-padding" routerLink="/noticias">
                 <ion-icon name="logo-twitch" color="danger"></ion-icon>
-                <h3>Noticias del dia</h3>
+                <h3>Noticias del día</h3>
             </ion-card>
           </ion-col>
 
@@ -31,17 +35,22 @@
           <ion-col col-6>
             <ion-card class="ion-text-center ion-padding" routerLink="/zonasinseguras">
                 <ion-icon name="nuclear" color="danger"></ion-icon>
-                <h3>Zonas Inseguras</h3>
+                <h3>Zonas <br>
+                Inseguras</h3>
             </ion-card>
           </ion-col>
 
           <ion-col col-6>
-              <ion-card class="ion-text-center ion-padding"routerLink="/estadisticas">
+              <ion-card class="ion-text-center ion-padding"routerLink="/graficos">
                   <ion-icon name="stats" color="danger"></ion-icon>
-                  <h3>Reporte de Incidentes</h3>
+                  <h3><br> Estadisticas 
+                    
+                  </h3>
               </ion-card>
             </ion-col>
         </ion-row>
       </ion-grid>
+
+    </div>
 
 </ion-content>

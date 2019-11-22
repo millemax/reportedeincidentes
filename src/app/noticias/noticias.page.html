@@ -1,9 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>noticias</ion-title>
+  <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        
+          <ion-icon name="arrow-back" style="font-size: 30px;" routerLink="/menu"></ion-icon>
+      </ion-buttons>
+      
+      <ion-title>Noticias</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content>  
+  <ion-grid>
+      <ion-row>
+          <ion-col  *ngFor="let documentTarea of coleccionDatos">
+                <ion-card>
+                   <img src="{{documentTarea.data.foto}}" width="200px" height="200px">
+                  <ion-card-header>
+                    <ion-card-subtitle>Alerta Andahuaylas</ion-card-subtitle>
+                    <ion-card-title>{{documentTarea.data.categoria}}</ion-card-title>
+                  </ion-card-header>
+                
+                  <ion-card-content>
+                      {{documentTarea.data.descripcion}}
+                      {{documentTarea.data.latitud}}
+                      {{documentTarea.data.longitud}}
+                      
+                     
+                  </ion-card-content>
+                  <ion-segment color="danger" scrollable>
+                      <ion-segment-button checked layout="icon-end" (click)="callNow('949470607')" >
+                        <ion-icon name="call"></ion-icon>
+                        <ion-label>Call</ion-label>
+                      </ion-segment-button>
+                      
+                      <ion-segment-button layout="icon-end">
+                        <ion-icon name="pin"></ion-icon>
+                        <ion-label>Map</ion-label>
+                      </ion-segment-button>
+                  </ion-segment>
+                  
+                </ion-card>
+            
+          </ion-col>
+
+        </ion-row>
+
+
+
+  </ion-grid>
 
 </ion-content>

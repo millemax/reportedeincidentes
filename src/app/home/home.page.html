@@ -1,29 +1,36 @@
-<ion-content padding center text-center>
+<ion-content padding  center text-center>
   
-  <ion-img src="assets/img/sirena.png"></ion-img>
-  <ion-list>
+  <ion-list>       
+      
     <form action="">
       <ion-item>
+          <ion-img src="assets/img/alerta.png"></ion-img>
+      </ion-item>
+      
+        
+      <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input></ion-input>     
+        <ion-input [(ngModel)]="correo" name="correo" type="email"></ion-input>     
 
       </ion-item>
       <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input ></ion-input>  
+          <ion-input [(ngModel)]="contrasena"  name="contrasena" type="password"></ion-input>  
         </ion-item>
         <div padding>
             
-            <ion-button shape="round" fill="outline" routerLink="/menu">INGRESAR </ion-button>
+            <ion-button  shape="round" fill="outline" (click)="login()" color="danger">INGRESAR </ion-button>
             
 
         </div>
 
         <div> 
-            <ion-button shape="round" fill="outline" routerLink="/registro" >REGISTRARME </ion-button>
+            <ion-button shape="round" fill="outline" routerLink="/registro" color="danger">REGISTRARME </ion-button>
         </div>
       
     </form>
+
+  
   </ion-list>
 
 </ion-content>
