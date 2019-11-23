@@ -65,7 +65,7 @@ export class GraficosPage implements OnInit {
           var db = firebase.firestore();
       
 
-          const categorias=["Robo","Asalto","Pelea callejera","Violencia familiar","Incendio","Otros"]
+          const categorias=["Robo","Asalto","Pelea","Violencia","Incendio","Otros"]
 
          
 

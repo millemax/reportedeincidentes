@@ -18,7 +18,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-    this.sideMenu();
+   
     this.initializeApp();
   }
 
@@ -31,27 +31,5 @@ export class AppComponent {
 
 
 
-  sideMenu()
-  {
-    this.navigate =
-    [
-      {
-        title : "Menu",
-        url   : "/menu",
-        icon  : "grid"
-      },
-      {
-        title : "Acerca",
-        url   : "/menu",
-        icon  : "grid"
-      },
-      {
-        title : "Cerrar Sesion",
-        url   : "/home",
-        icon  : "log-out"
-      },
-    ]
-  }
-
-
+  
 }

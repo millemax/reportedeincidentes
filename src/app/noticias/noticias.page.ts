@@ -5,8 +5,11 @@ import { Component, OnInit } from '@angular/core';7
 import {CrudService}  from '../services/crud.service';
 import {LoadingController } from '@ionic/angular';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 
+
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+
+import * as firebase from 'firebase';
 
  
 
@@ -38,9 +41,12 @@ export class NoticiasPage implements OnInit {
    coleccionDatos:any=[{
      id:"",
      data:{} as Tarea
-   }]
+   }];
 
-  constructor( private firestoreService:CrudService,private loadingCtrl: LoadingController,private callNumber: CallNumber) { 
+   categoria:string
+
+  constructor( private firestoreService:CrudService,private loadingCtrl: LoadingController,
+    private callNumber: CallNumber, private launchNavigator:LaunchNavigator) { 
     this.obtenerListaTareas();
   }
 
@@ -79,13 +85,43 @@ export class NoticiasPage implements OnInit {
 
   }
 
+  imprimir(descripcion:string){
+    console.log(descripcion)
 
-  callNow(number){
+  }
 
-    this.callNumber.callNumber(number, true)
-      .then(res => console.log('Launched dialer!', res))
-      .catch(err => console.log('Error launching dialer', err));
+
+  callNow(iud:string){
+  
+    var db = firebase.firestore();
+    
+    db.collection('users').doc(iud).get()
+      .then((querySnapshot)=>{
+               let num=querySnapshot.data()['numerocelular'];
+               this.callNumber.callNumber(""+num, true)
+                .then(res => console.log('Launched dialer!', res))
+                .catch(err => console.log('Error launching dialer', err));
+
+      })
+      .catch((err)=>{
+        console.log("no se pudo obtener el telefono celular")
+      })
+
       
+      
+  }
+
+
+  navlauncher(lat:number,lng:number){
+ 
+
+      this.launchNavigator.navigate([lat,lng])
+        .then(
+          success => console.log('Launched navigator'),
+          error => console.log('Error launching navigator', error)
+        );
+
+
   }
 
 

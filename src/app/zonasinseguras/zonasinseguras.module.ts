@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ZonasinsegurasPage } from './zonasinseguras.page';
 
+import { CalendarModule } from "ion2-calendar";
+
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +21,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CalendarModule,
   ],
   declarations: [ZonasinsegurasPage]
 })

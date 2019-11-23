@@ -1,15 +1,65 @@
-<ion-header>
-    <ion-toolbar color="danger">
+<ion-header >
+    <ion-toolbar color="danger" >
         <ion-buttons slot="start">
           
             <ion-icon name="arrow-back" style="font-size: 30px;" routerLink="/menu"></ion-icon>
         </ion-buttons>
         
         <ion-title>Zonas Inseguras</ion-title>
+
+        <ion-buttons slot="end">
+          
+                  <ion-icon name="calendar" style="font-size: 40px;" (click)="openCalendar()"></ion-icon>
+                  
+      </ion-buttons>
+              
   
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
  <div id="map"></div>
+ <ion-fab vertical="bottom" horizontal="start" slot="fixed" >
+        <ion-fab-button color="danger">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button data-desc="Otros">
+                 <img src="assets/img/alarma.png">                    
+            </ion-fab-button>
+          <ion-fab-button  data-desc="Robo">
+                <img src="assets/img/Robo.png"> 
+          </ion-fab-button>
+          <ion-fab-button data-desc="Asalto">
+                <img src="assets/img/Asalto.png">
+            
+          </ion-fab-button>
+
+          <ion-fab-button data-desc="Pelea">
+                <img src="assets/img/Pelea.png">
+            
+          </ion-fab-button>
+
+
+          <ion-fab-button data-desc="Violencia familiar">
+                <img src="assets/img/Violencia.png">
+            
+          </ion-fab-button>
+
+          <ion-fab-button data-desc="Incendio">
+                <img src="assets/img/Incendio.png">
+            
+          </ion-fab-button>
+          
+
+        </ion-fab-list>
+ </ion-fab>
+
+
+ <ion-calendar [(ngModel)]="dateRange"
+              [options]="optionsRange"
+              [type]="type"
+              [format]="'YYYY-MM-DD'">
+</ion-calendar>
+}
 </ion-content>

@@ -13,8 +13,10 @@
 <ion-content>  
   <ion-grid>
       <ion-row>
-          <ion-col  *ngFor="let documentTarea of coleccionDatos">
-                <ion-card>
+        
+          <ion-col>
+            
+                <ion-card *ngFor="let documentTarea of coleccionDatos">
                    <img src="{{documentTarea.data.foto}}" width="200px" height="200px">
                   <ion-card-header>
                     <ion-card-subtitle>Alerta Andahuaylas</ion-card-subtitle>
@@ -23,18 +25,19 @@
                 
                   <ion-card-content>
                       {{documentTarea.data.descripcion}}
-                      {{documentTarea.data.latitud}}
-                      {{documentTarea.data.longitud}}
                       
-                     
+                  
+                  
+                  
+                 
                   </ion-card-content>
                   <ion-segment color="danger" scrollable>
-                      <ion-segment-button checked layout="icon-end" (click)="callNow('949470607')" >
+                      <ion-segment-button checked layout="icon-end" (click)="callNow(documentTarea.data.iud)">
                         <ion-icon name="call"></ion-icon>
                         <ion-label>Call</ion-label>
                       </ion-segment-button>
                       
-                      <ion-segment-button layout="icon-end">
+                      <ion-segment-button layout="icon-end" (click)="navlauncher(documentTarea.data.latitud,documentTarea.data.longitud)">
                         <ion-icon name="pin"></ion-icon>
                         <ion-label>Map</ion-label>
                       </ion-segment-button>
@@ -43,6 +46,7 @@
                 </ion-card>
             
           </ion-col>
+        
 
         </ion-row>
 

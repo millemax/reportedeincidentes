@@ -41,7 +41,13 @@ import {SMS} from '@ionic-native/sms/ngx'
 //plugin para el mensaje cloud
 import { CallNumber } from '@ionic-native/call-number/ngx';
 
+//plugin navegar con google maps
 
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+
+
+// plugin para el calendario
+import { CalendarModule } from "ion2-calendar";
 
 
 
@@ -60,6 +66,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     AngularFireDatabaseModule ,
     ChartsModule,
     AngularFireAuthModule,
+    CalendarModule,
      ],
   providers: [
     Geolocation,
@@ -68,6 +75,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     Camera,
     SMS,
     CallNumber,
+    LaunchNavigator,
     
     
     
