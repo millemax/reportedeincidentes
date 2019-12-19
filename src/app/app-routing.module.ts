@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'zonasinseguras', loadChildren: './zonasinseguras/zonasinseguras.module#ZonasinsegurasPageModule' },
   { path: 'reporte-enviado', loadChildren: './reporte-enviado/reporte-enviado.module#ReporteEnviadoPageModule' },
   { path: 'graficos', loadChildren: './graficos/graficos.module#GraficosPageModule' },
+  { path: 'recontrasena', loadChildren: './recontrasena/recontrasena.module#RecontrasenaPageModule' },
  
   
 

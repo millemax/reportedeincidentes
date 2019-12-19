@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="danger" >
+    <ion-title>Restablece tu contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding  center text-center>
+
+  <ion-list>
+    <form action="">
+        <ion-item>
+          <ion-label position="floating">Ingrese correo</ion-label>
+          <ion-input [(ngModel)]="correo" name="correo" type="email"></ion-input> 
+        </ion-item>
+
+        <ion-button  shape="round" fill="outline" (click)="restablecer()" color="danger">Restablecer</ion-button>
+    </form>
+      
+  </ion-list>
+
+</ion-content>

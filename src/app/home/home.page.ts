@@ -69,6 +69,11 @@ export class HomePage{
 
       }
 
+ // funcion para reestablecer contraseña
+      reestablecercontrasena(){
+        console.log("reestableciendo contraseña");
+        this.navCtrl.navigateForward('/recontrasena');
+      }
     
 
 }

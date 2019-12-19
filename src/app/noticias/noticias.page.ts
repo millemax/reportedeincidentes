@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';7
 // Importamos en el servicio de crud 
 
 import {CrudService}  from '../services/crud.service';
-import {LoadingController } from '@ionic/angular';
+import {LoadingController, AlertController } from '@ionic/angular';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 
 
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
 
 import * as firebase from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 
  
 
@@ -46,7 +47,7 @@ export class NoticiasPage implements OnInit {
    categoria:string
 
   constructor( private firestoreService:CrudService,private loadingCtrl: LoadingController,
-    private callNumber: CallNumber, private launchNavigator:LaunchNavigator) { 
+    private callNumber: CallNumber, private launchNavigator:LaunchNavigator, private controller:AlertController,private autenticador:AngularFireAuth) { 
     this.obtenerListaTareas();
   }
 
@@ -85,27 +86,49 @@ export class NoticiasPage implements OnInit {
 
   }
 
-  imprimir(descripcion:string){
-    console.log(descripcion)
+  alerta(){
+
+    this.controller.create({
+      header: 'Notificación',
+      message: 'No estas autorizado!',
+      buttons: ['Ok']
+    }).then(alert => {
+      alert.present();
+    });
 
   }
 
 
-  callNow(iud:string){
-  
-    var db = firebase.firestore();
+  async callNow(iud:string){
+    const loading = await this.loadingCtrl.create();
+    loading.present();
+    let adiud=this.autenticador.auth.currentUser.uid
     
-    db.collection('users').doc(iud).get()
-      .then((querySnapshot)=>{
-               let num=querySnapshot.data()['numerocelular'];
-               this.callNumber.callNumber(""+num, true)
-                .then(res => console.log('Launched dialer!', res))
-                .catch(err => console.log('Error launching dialer', err));
+    
+   if (adiud=="S3NQO5aKJ8gPT0BUTkhO0oDTmqJ2") {
+          var db = firebase.firestore();
+                  
+          db.collection('users').doc(iud).get()
+            .then((querySnapshot)=>{
+                    loading.dismiss();
+                    let num=querySnapshot.data()['numerocelular'];
+                    this.callNumber.callNumber(""+num, true)
+                      .then(res => console.log('Launched dialer!', res))
+                      .catch(err => console.log('Error launching dialer', err));
 
-      })
-      .catch((err)=>{
-        console.log("no se pudo obtener el telefono celular")
-      })
+            })
+            .catch((err)=>{
+              console.log("no se pudo obtener el telefono celular")
+            })
+     
+   } else {
+     loading.dismiss();
+     this.alerta();
+
+
+     
+   }
+            
 
       
       

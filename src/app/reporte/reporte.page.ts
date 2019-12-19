@@ -287,6 +287,7 @@ alerta(){
   
         
   async cargar(){
+    let hoy=Date.now();
     const loading =  await this.loadingCtrl.create();
     loading.present();
 
@@ -311,6 +312,7 @@ alerta(){
                 record['longitud'] =this.lng;
                 record['fecha']=this.fecha;
                 record['hora']=this.hora;
+                record['tiempo']=hoy;
 
 
 
@@ -325,6 +327,7 @@ alerta(){
                   this.lng=null;
                   this.fecha="";
                   this.hora="";
+                  hoy=null;
                   loading.dismiss();
                   console.log(resp);
                   this.alerta();

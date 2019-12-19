@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  constructor(private autenticador:AngularFireAuth, private navCtrl:NavController) { }
 
   ngOnInit() {
+  }
+
+  logOut(){
+     this.autenticador.auth.signOut()
+     .then(()=>{
+       this.navCtrl.navigateForward("/home");
+
+     })
+     
+    
   }
 
 }
