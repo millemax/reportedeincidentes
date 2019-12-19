@@ -50,6 +50,9 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
 import { CalendarModule } from "ion2-calendar";
 
 
+//plugin para usar la notificaciones 
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 
 
@@ -76,6 +79,7 @@ import { CalendarModule } from "ion2-calendar";
     SMS,
     CallNumber,
     LaunchNavigator,
+    LocalNotifications,
     
     
     

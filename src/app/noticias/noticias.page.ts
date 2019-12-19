@@ -12,6 +12,10 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
+// importamos el plugin para enviar las notificaciones
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
  
 
 
@@ -34,6 +38,8 @@ export interface Tarea {
 })
 export class NoticiasPage implements OnInit {
 
+  entro:any=false;
+
   arrayColeccionTareas: any = [{
     id: "",
     data: {} as Tarea
@@ -44,24 +50,46 @@ export class NoticiasPage implements OnInit {
      data:{} as Tarea
    }];
 
-   categoria:string
+   categoria:string;
+
+   
 
   constructor( private firestoreService:CrudService,private loadingCtrl: LoadingController,
-    private callNumber: CallNumber, private launchNavigator:LaunchNavigator, private controller:AlertController,private autenticador:AngularFireAuth) { 
-    this.obtenerListaTareas();
+    private callNumber: CallNumber, private launchNavigator:LaunchNavigator, private controller:AlertController,private autenticador:AngularFireAuth,
+    private localNotifications: LocalNotifications) { 
+    this.obtenerListaTareas().then(err=>{
+          console.log("obtuve un nuevo dato ");
+    })
   }
 
   ngOnInit() {
-
-
-    
+        
   }
+  
+
+  //funcion para enviar las notificaciones
+  notificacion(){
+    if (this.entro==true) {
+      console.log('hola')
+      this.localNotifications.schedule({
+        id: 1,
+        text: 'tienes nuevas alertas',
+        sound: 'file://assets/sound/alert.mp3',
+        data: { secret: 'key_data' }
+      });    
+      
+    }  
+
+  }
+
 
   async obtenerListaTareas(){
     const loading = await this.loadingCtrl.create();
     loading.present();
     this.firestoreService.read_report().subscribe((resultadoConsultaTareas) => {
       loading.dismiss();
+      this.notificacion();
+      this.entro=true;
       this.arrayColeccionTareas = [];
       resultadoConsultaTareas.forEach((datosTarea: any) => {
         this.arrayColeccionTareas.push({
